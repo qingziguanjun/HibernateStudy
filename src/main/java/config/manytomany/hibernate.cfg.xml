@@ -15,10 +15,11 @@
         <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
-        <mapping class="manytoone.Item"/>
-        <mapping class="manytoone.Bid"/>
-        <mapping class="manytoone.Person"/>
-        <mapping class="manytoone.Phone"/>
+       <!--   <mapping class="manytomany.Person"/>
+        <mapping class="manytomany.Address"/>-->
+        <mapping class="manytomany.bidirection.Person"/>
+        <mapping class="manytomany.bidirection.Address"/>
+   
     </session-factory>
 
 </hibernate-configuration>
