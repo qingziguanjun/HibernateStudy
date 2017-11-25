@@ -21,7 +21,11 @@ public class MainTest {
 		
 		Transaction t = session.beginTransaction();
 		
-		
+		Person test = session.getReference(Person.class, 4L);
+		Person test2 = session.find(Person.class, 1L);
+		Person test3 = session.find(Person.class, 1L);
+		System.out.println(test == test3);
+		System.out.println(test2 == test3);
 		Person person1 = new Person( "ABC-123" );
 		Person person2 = new Person( "DEF-456" );
 
