@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.persistence.Embeddable;
+import javax.persistence.EntityManager;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -24,6 +25,7 @@ public class MainTest {
 		SessionFactory sessionFactory = new MetadataSources(registry).
 				buildMetadata().buildSessionFactory();
 		Session session = sessionFactory.openSession();
+		
 		
 		Transaction t = session.beginTransaction();
 		
