@@ -25,28 +25,28 @@ public class MainTest {
 		
 		Transaction t = session.beginTransaction();
 		
-//		Item someItem = new Item("Some Item");
-//		
-//		
-//		Bid someBid = new Bid(1235L, someItem);
-//		someItem.getBids().add(someBid);
-//		//Item 注解里有 cascade，就不需要下面保存了
-//		//但是session.persist(someItem) 必须在 add后面，不然只保存item
-//		//session.persist(someBid);
-//		
-//		Bid someBid2 = new Bid(4565L, someItem);
-//		someItem.getBids().add(someBid2);
-//		//session.persist(someBid2);
-//		
-//		session.persist(someItem);
-//		t.commit();
-//		
+		Item someItem = new Item("Some Item");
+		session.persist(someItem);
+		
+		Bid someBid = new Bid(1235L, someItem);
+		someItem.getBids().add(someBid);
+		//Item 注解里有 cascade，就不需要下面保存了
+		//但是session.persist(someItem) 必须在 add后面，不然只保存item
+		session.persist(someBid);
+		
+		Bid someBid2 = new Bid(4565L, someItem);
+		someItem.getBids().add(someBid2);
+		session.persist(someBid2);
+		
+		session.persist(someItem);
+		t.commit();
+		
 		//要是能取得成功，类必须要有默认构造函数方法
-		Item item = session.find(Item.class, 10);
-//		for(Bid bid: item.getBids()){
-//			session.remove(bid);
-//		}
-		session.remove(item);
+//		Item item = session.find(Item.class, 10);
+////		for(Bid bid: item.getBids()){
+////			session.remove(bid);
+////		}
+//		session.remove(item);
 		t.commit();
         session.close();
         System.out.println("success");

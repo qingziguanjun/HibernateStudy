@@ -34,7 +34,7 @@ public class Item {
 	cascade = {CascadeType.PERSIST})
 //	@BatchSize(size = 10)
 	//@Fetch(FetchMode.SUBSELECT)
-	@Fetch(FetchMode.SELECT)
+	@Fetch(FetchMode.JOIN)
 	protected Set<Bid> bids = new HashSet<Bid>(); 
 
 	
