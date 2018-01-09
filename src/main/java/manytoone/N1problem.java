@@ -31,11 +31,12 @@ public class N1problem {
 		
 		List<Item> items = session.createQuery("select i from Item i ").getResultList();
 		
-		for(Item item :items){
-			item.getBids().size();
-		}
+//		for(Item item :items){
+//			item.getBids().size();
+//		}
 		t.commit();
         session.close();
+        items.get(0).getBids().size();
         System.out.println("success");
 		
 		
